@@ -5,14 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MeineFussballmannschaft"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <ComboBox x:Name="comboBoxSpielerList" HorizontalAlignment="Left" Margin="27.922,31.695,0,0" VerticalAlignment="Top" Width="334.188" SelectionChanged="comboBoxSpielerList_SelectionChanged"/>
-        <Button x:Name="buttonFirst" Content="First" HorizontalAlignment="Left" Margin="41.309,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonFirst_Click"/>
-        <Button x:Name="buttonPrev" Content="Prev" HorizontalAlignment="Left" Margin="114.421,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonPrev_Click"/>
-        <Button x:Name="buttonNext" Content="Next" HorizontalAlignment="Left" Margin="187.534,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonNext_Click"/>
-        <Button x:Name="buttonLast" Content="Last" HorizontalAlignment="Left" Margin="258.586,348.716,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.261,-0.052" Height="40" Click="buttonLast_Click"/>
-        <Grid HorizontalAlignment="Left" Height="331.276" Margin="417.167,57.44,0,0" VerticalAlignment="Top" Width="348.169">
+        Title="Meine Fussball-Mannschaft" Height="450" Width="617.735" ResizeMode="NoResize">
+    <Grid Margin="-1.03,0,2,-3.089">
+        <Label x:Name="label" Content="Bild nicht gefunden!" HorizontalAlignment="Left" Margin="27.922,171.71,0,0" VerticalAlignment="Top" Height="28.019" Width="180" Padding="30,5,5,5"/>
+
+        <ComboBox x:Name="comboBoxSpielerList" HorizontalAlignment="Left" Margin="27.922,31.695,0,0" VerticalAlignment="Top" Width="180" SelectionChanged="comboBoxSpielerList_SelectionChanged"/>
+        <Button x:Name="buttonFirst" Content="" HorizontalAlignment="Left" Margin="27.922,340.478,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="buttonFirst_Click" RenderTransformOrigin="2.607,0.423">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Icons/resultset_first.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/resultset_first.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonPrev" Content="" HorizontalAlignment="Left" Margin="64.922,340.478,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="buttonPrev_Click" RenderTransformOrigin="-0.062,0.519">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Icons/resultset_previous.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/resultset_previous.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonNext" Content="" HorizontalAlignment="Left" Margin="138.922,340.478,0,0" VerticalAlignment="Top" Width="32" Height="32" Click="buttonNext_Click" RenderTransformOrigin="0.901,0.423" BorderBrush="#FF707070" Foreground="Black">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Icons/resultset_next.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/resultset_next.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="buttonLast" Content="" HorizontalAlignment="Left" Margin="175.922,340.478,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.261,-0.052" Height="32" Click="buttonLast_Click">
+            <Button.OpacityMask>
+                <ImageBrush ImageSource="Icons/resultset_last.png"/>
+            </Button.OpacityMask>
+            <Button.Background>
+                <ImageBrush ImageSource="Icons/resultset_last.png"/>
+            </Button.Background>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="331.276" Margin="250.348,41.202,0,0" VerticalAlignment="Top" Width="348.169">
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -31,7 +61,7 @@
                 <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="labelName" Content="Name:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="25.96" Width="109.058"/>
-            <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="196.095" Grid.Column="1"/>
+            <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="196.095" Grid.Column="1" IsReadOnly="True"/>
             <Label x:Name="labelVorname" Content="Vorname:" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top" Height="25.96" Width="60.003"/>
             <Label x:Name="labelPosition" Content="Position:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Height="25.96" Width="54.7"/>
             <Label x:Name="labelRuecknummer" Content="Rückenummer:" HorizontalAlignment="Left" Margin="0" Grid.Row="3" VerticalAlignment="Top" Height="25.96" Width="89.053"/>
@@ -42,17 +72,18 @@
             <Label x:Name="labelSpieleToreInBundesliga" Content="Spiele/Tore Bundesliga:" HorizontalAlignment="Left" Margin="0" Grid.Row="8" VerticalAlignment="Top" Height="25.96" Width="142.074"/>
             <Label x:Name="labelNation" Content="Nation:" HorizontalAlignment="Left" Margin="0" Grid.Row="9" VerticalAlignment="Top" Height="25.96" Width="48.477"/>
             <Label x:Name="labelLaenderspiele" Content="Länderspiele:" HorizontalAlignment="Left" Margin="0" Grid.Row="10" VerticalAlignment="Top" Height="25.96" Width="79.177"/>
-            <TextBox x:Name="textBoxVorname" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="vorname" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="position" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxRueckennummer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="rueckennummmer" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxSeit" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="4" TextWrapping="Wrap" Text="seit" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxGeburtsdatum" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="5" TextWrapping="Wrap" Text="geburstdatum" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxGroesseInCm" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="6" TextWrapping="Wrap" Text="groesseincm" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxGewichtInKg" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="7" TextWrapping="Wrap" Text="gewichtincm" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxSpieleTore" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="8" TextWrapping="Wrap" Text="spiele/tore" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxNation" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="9" TextWrapping="Wrap" Text="nation" VerticalAlignment="Top" Width="196.095"/>
-            <TextBox x:Name="textBoxLänderspiele" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="10" TextWrapping="Wrap" Text="laenderspiele" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxVorname" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="vorname" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="position" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxRueckennummer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="rueckennummmer" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxSeit" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="4" TextWrapping="Wrap" Text="seit" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxGeburtsdatum" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="5" TextWrapping="Wrap" Text="geburstdatum" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxGroesseInCm" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="6" TextWrapping="Wrap" Text="groesseincm" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxGewichtInKg" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="7" TextWrapping="Wrap" Text="gewichtincm" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxSpieleTore" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="8" TextWrapping="Wrap" Text="spiele/tore" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxNation" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="9" TextWrapping="Wrap" Text="nation" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
+            <TextBox x:Name="textBoxLänderspiele" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="10" TextWrapping="Wrap" Text="laenderspiele" VerticalAlignment="Top" Width="196.095" IsReadOnly="True"/>
         </Grid>
+        <Image x:Name="imageSpieler" HorizontalAlignment="Left" Height="212" Margin="27.922,90.391,0,0" VerticalAlignment="Top" Width="180"/>
 
     </Grid>
 </Window>

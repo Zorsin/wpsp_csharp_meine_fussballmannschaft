@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.IO;
+using System.Reflection;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace MeineFussballmannschaft
 {
@@ -23,12 +17,14 @@ namespace MeineFussballmannschaft
         private Kader kader = new Kader();
         private int minSelectedItem;
         private int maxSelectedItem;
+        private String folderOfPlayerData = "VfB Stuttgart";
 
         public MainWindow()
         {
             InitializeComponent();
             
-            kader.Init();
+            Init();
+
             foreach(Spieler spieler in kader.SpielerListe)
             {
                 comboBoxSpielerList.Items.Add(String.Format("{0} {1}", spieler.Vorname, spieler.Name));
@@ -43,6 +39,41 @@ namespace MeineFussballmannschaft
             buttonNext.IsEnabled = true;
             buttonLast.IsEnabled = true;
 
+        }
+
+        public void Init()
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Kader));
+            string currentAssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string currentAssemblyParentPath = Path.GetDirectoryName(currentAssemblyPath);
+            String path = String.Format("{0}/{1}/{2}", Path.GetDirectoryName(currentAssemblyParentPath), folderOfPlayerData ,"SpielerData.xml");
+
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+            XmlReader xmlReader = XmlReader.Create(fileStream);
+                     
+
+            kader = (Kader)xmlSerializer.Deserialize(xmlReader);
+
+            Console.WriteLine("Anzahl an Spielern in der XML:" + kader.SpielerListe.Count);
+                        
+            //int count = 0;
+            //foreach (Spieler spieler in SpielerListe)
+            //{
+            //    Console.WriteLine("--- Neuer Spieler ---");
+            //    Console.WriteLine(spieler.Vorname + " " + spieler.Name);
+            //    Console.WriteLine(spieler.Position);
+            //    Console.WriteLine(spieler.Rueckennummer);
+            //    Console.WriteLine(spieler.Seit);
+            //    Console.WriteLine(spieler.GeburtsDatum);
+            //    Console.WriteLine(spieler.GroesseInCm);
+            //    Console.WriteLine(spieler.GewichtInKg);
+            //    Console.WriteLine(spieler.SpieleInBundesliga);
+            //    Console.WriteLine(spieler.ToreInBundesliga);
+            //    Console.WriteLine(spieler.Nation);
+            //    Console.WriteLine(spieler.Laenderspiele);
+            //    Console.WriteLine("Count:"+count);
+            //    count++;
+            //}
         }
 
         private void buttonFirst_Click(object sender, RoutedEventArgs e)
@@ -107,20 +138,42 @@ namespace MeineFussballmannschaft
 
             Spieler spieler = kader.SpielerListe[comboBoxSpielerList.SelectedIndex];
 
-            Console.WriteLine("--- Neuer Spieler ---");
-            Console.WriteLine(spieler.Vorname + " " + spieler.Name);
-            Console.WriteLine(spieler.Position);
-            Console.WriteLine(spieler.Rueckennummer);
-            Console.WriteLine(spieler.Seit);
-            Console.WriteLine(spieler.GeburtsDatum);
-            Console.WriteLine(spieler.GroesseInCm);
-            Console.WriteLine(spieler.GewichtInKg);
-            Console.WriteLine(spieler.SpieleInBundesliga);
-            Console.WriteLine(spieler.ToreInBundesliga);
-            Console.WriteLine(spieler.Nation);
-            Console.WriteLine(spieler.Laenderspiele);
+            //Console.WriteLine("--- Neuer Spieler ---");
+            //Console.WriteLine(spieler.Vorname + " " + spieler.Name);
+            //Console.WriteLine(spieler.Position);
+            //Console.WriteLine(spieler.Rueckennummer);
+            //Console.WriteLine(spieler.Seit);
+            //Console.WriteLine(spieler.GeburtsDatum);
+            //Console.WriteLine(spieler.GroesseInCm);
+            //Console.WriteLine(spieler.GewichtInKg);
+            //Console.WriteLine(spieler.SpieleInBundesliga);
+            //Console.WriteLine(spieler.ToreInBundesliga);
+            //Console.WriteLine(spieler.Nation);
+            //Console.WriteLine(spieler.Laenderspiele);
 
             MapSpielerTextBox();
+
+            if (comboBoxSpielerList.SelectedIndex == minSelectedItem)
+            {
+                buttonPrev.IsEnabled = false;
+                buttonFirst.IsEnabled = false;
+            }
+            else
+            {
+                buttonPrev.IsEnabled = true;
+                buttonFirst.IsEnabled = true;
+            }
+
+            if (comboBoxSpielerList.SelectedIndex < maxSelectedItem)
+            {
+                buttonNext.IsEnabled = true;
+                buttonLast.IsEnabled = true;
+            }
+            else
+            {
+                buttonNext.IsEnabled = false;
+                buttonLast.IsEnabled = false;
+            }
         }
 
         private void MapSpielerTextBox()
@@ -138,6 +191,25 @@ namespace MeineFussballmannschaft
             textBoxSpieleTore.Text = String.Format("{0} / {1}", spieler.SpieleInBundesliga, spieler.ToreInBundesliga);
             textBoxNation.Text = spieler.Nation;
             textBoxLänderspiele.Text = String.Format("{0}", spieler.Laenderspiele);
+
+            String playerFullName = String.Format("{1} {0}", spieler.Vorname, spieler.Name);
+
+            string currentAssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string currentAssemblyParentPath = Path.GetDirectoryName(currentAssemblyPath);
+            String path = String.Format("{0}/{1}/{2}.jpg", Path.GetDirectoryName(currentAssemblyParentPath), folderOfPlayerData, playerFullName);
+            
+            Uri uri = new Uri(path);
+            try
+            {
+                imageSpieler.Source = null;
+                var bitmap = new BitmapImage(uri);
+                imageSpieler.Source = bitmap;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Fehler beim Abfragen des Bildes:" + exception.Message);
+            }
+            
         }
     }
 }
