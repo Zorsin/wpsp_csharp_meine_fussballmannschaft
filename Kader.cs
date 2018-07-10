@@ -29,9 +29,28 @@ namespace MeineFussballmannschaft
 
             kader = (Kader)xmlSerializer.Deserialize(xmlReader);
 
-            Console.WriteLine("Anzahl an Spielern:" + kader.SpielerListe.Capacity);
+            Console.WriteLine("Anzahl an Spielern:" + kader.SpielerListe.Count);
 
             SpielerListe = kader.SpielerListe;
+
+            //int count = 0;
+            //foreach (Spieler spieler in SpielerListe)
+            //{
+            //    Console.WriteLine("--- Neuer Spieler ---");
+            //    Console.WriteLine(spieler.Vorname + " " + spieler.Name);
+            //    Console.WriteLine(spieler.Position);
+            //    Console.WriteLine(spieler.Rueckennummer);
+            //    Console.WriteLine(spieler.Seit);
+            //    Console.WriteLine(spieler.GeburtsDatum);
+            //    Console.WriteLine(spieler.GroesseInCm);
+            //    Console.WriteLine(spieler.GewichtInKg);
+            //    Console.WriteLine(spieler.SpieleInBundesliga);
+            //    Console.WriteLine(spieler.ToreInBundesliga);
+            //    Console.WriteLine(spieler.Nation);
+            //    Console.WriteLine(spieler.Laenderspiele);
+            //    Console.WriteLine("Count:"+count);
+            //    count++;
+            //}
         }
     }
 }

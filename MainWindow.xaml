@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ComboBox x:Name="comboBoxSpielerList" HorizontalAlignment="Left" Margin="27.922,31.695,0,0" VerticalAlignment="Top" Width="334.188" DataContextChanged="comboBoxSpielerList_DataContextChanged"/>
+        <ComboBox x:Name="comboBoxSpielerList" HorizontalAlignment="Left" Margin="27.922,31.695,0,0" VerticalAlignment="Top" Width="334.188" SelectionChanged="comboBoxSpielerList_SelectionChanged"/>
         <Button x:Name="buttonFirst" Content="First" HorizontalAlignment="Left" Margin="41.309,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonFirst_Click"/>
         <Button x:Name="buttonPrev" Content="Prev" HorizontalAlignment="Left" Margin="114.421,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonPrev_Click"/>
         <Button x:Name="buttonNext" Content="Next" HorizontalAlignment="Left" Margin="187.534,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonNext_Click"/>
