@@ -23,6 +23,34 @@ namespace MeineFussballmannschaft
         public MainWindow()
         {
             InitializeComponent();
+            Kader kader = new Kader();
+            kader.Init();
+
+        }
+
+        private void buttonFirst_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonPrev_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonNext_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonLast_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void comboBoxSpielerList_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

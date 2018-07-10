@@ -7,6 +7,52 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ComboBox x:Name="comboBoxSpielerList" HorizontalAlignment="Left" Margin="27.922,31.695,0,0" VerticalAlignment="Top" Width="334.188" DataContextChanged="comboBoxSpielerList_DataContextChanged"/>
+        <Button x:Name="buttonFirst" Content="First" HorizontalAlignment="Left" Margin="41.309,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonFirst_Click"/>
+        <Button x:Name="buttonPrev" Content="Prev" HorizontalAlignment="Left" Margin="114.421,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonPrev_Click"/>
+        <Button x:Name="buttonNext" Content="Next" HorizontalAlignment="Left" Margin="187.534,348.716,0,0" VerticalAlignment="Top" Width="50" Height="40" Click="buttonNext_Click"/>
+        <Button x:Name="buttonLast" Content="Last" HorizontalAlignment="Left" Margin="258.586,348.716,0,0" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.261,-0.052" Height="40" Click="buttonLast_Click"/>
+        <Grid HorizontalAlignment="Left" Height="331.276" Margin="417.167,57.44,0,0" VerticalAlignment="Top" Width="348.169">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="38*"/>
+                <ColumnDefinition Width="49*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="labelName" Content="Name:" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Height="25.96" Width="109.058"/>
+            <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="name" VerticalAlignment="Top" Width="196.095" Grid.Column="1"/>
+            <Label x:Name="labelVorname" Content="Vorname:" HorizontalAlignment="Left" Margin="0" Grid.Row="1" VerticalAlignment="Top" Height="25.96" Width="60.003"/>
+            <Label x:Name="labelPosition" Content="Position:" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Height="25.96" Width="54.7"/>
+            <Label x:Name="labelRuecknummer" Content="Rückenummer:" HorizontalAlignment="Left" Margin="0" Grid.Row="3" VerticalAlignment="Top" Height="25.96" Width="89.053"/>
+            <Label x:Name="labelSeit" Content="Im Verein seit:" HorizontalAlignment="Left" Margin="0" Grid.Row="4" VerticalAlignment="Top" Height="25.96" Width="84.16"/>
+            <Label x:Name="labelGeburtsDatum" Content="Geboren am:" HorizontalAlignment="Left" Margin="0" Grid.Row="5" VerticalAlignment="Top" Height="25.96" Width="78.163"/>
+            <Label x:Name="labelGroesseInCm" Content="Größe (cm):" HorizontalAlignment="Left" Margin="0" Grid.Row="6" VerticalAlignment="Top" RenderTransformOrigin="0.19,-0.198" Height="25.96" Width="71.247"/>
+            <Label x:Name="labelGewichtInKg" Content="Gewicht (kg):" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="25.96" Width="76.047"/>
+            <Label x:Name="labelSpieleToreInBundesliga" Content="Spiele/Tore Bundesliga:" HorizontalAlignment="Left" Margin="0" Grid.Row="8" VerticalAlignment="Top" Height="25.96" Width="142.074"/>
+            <Label x:Name="labelNation" Content="Nation:" HorizontalAlignment="Left" Margin="0" Grid.Row="9" VerticalAlignment="Top" Height="25.96" Width="48.477"/>
+            <Label x:Name="labelLaenderspiele" Content="Länderspiele:" HorizontalAlignment="Left" Margin="0" Grid.Row="10" VerticalAlignment="Top" Height="25.96" Width="79.177"/>
+            <TextBox x:Name="textBoxVorname" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="vorname" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxPosition" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="position" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxRueckennummer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="3" TextWrapping="Wrap" Text="rueckennummmer" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxSeit" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="4" TextWrapping="Wrap" Text="seit" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxGeburtsdatum" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="5" TextWrapping="Wrap" Text="geburstdatum" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxGroesseInCm" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="6" TextWrapping="Wrap" Text="groesseincm" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxGewichtInKg" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="7" TextWrapping="Wrap" Text="gewichtincm" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxSpieleTore" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="8" TextWrapping="Wrap" Text="spiele/tore" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxNation" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="9" TextWrapping="Wrap" Text="nation" VerticalAlignment="Top" Width="196.095"/>
+            <TextBox x:Name="textBoxLänderspiele" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0" Grid.Row="10" TextWrapping="Wrap" Text="laenderspiele" VerticalAlignment="Top" Width="196.095"/>
+        </Grid>
+
     </Grid>
 </Window>
